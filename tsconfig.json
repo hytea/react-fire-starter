@@ -1,5 +1,12 @@
 {
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "#/*": ["./src/*"]
+    }
+  },
   "files": [],
+  "exclude": ["node_modules", "dist"],
   "references": [
     {
       "path": "./tsconfig.app.json"

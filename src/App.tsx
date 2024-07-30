@@ -1,35 +1,83 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+import { RecoilEnv } from "recoil";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { AuthLoading } from "#/authentication/AuthLoading";
+import { AuthInitializer } from "#/authentication/Authenticate";
+import { RequireAuthentication } from "#/authentication/RequireAuthentication";
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+import { LoadingAnimation } from "#/components/loading-animation";
+
+import { ErrorPage } from "#/pages/error";
+import { LoginPage } from "#/pages/login";
+import { NotFoundPage } from "#/pages/not-found";
+import { LandingPage } from "#/pages/private/landing";
+
+import { Logout } from "#/routes/Logout";
+import { Primary } from "#/routes/Private";
+import { Public } from "#/routes/Public";
+
+if (import.meta.env.DEV) {
+  RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 }
 
-export default App
+const privateRoutes = [
+  {
+    path: "/",
+    element: <LandingPage />,
+  },
+  {
+    path: "/logout",
+    element: <Logout />,
+  },
+];
+
+const router = createBrowserRouter([
+  {
+    path: "/auth",
+    element: <Public />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/auth",
+        element: <Navigate to="/auth/login" replace />,
+      },
+      {
+        path: "/auth/login",
+        element: <LoginPage />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: (
+      <RequireAuthentication>
+        <AuthLoading>
+          <Primary />
+        </AuthLoading>
+      </RequireAuthentication>
+    ),
+    errorElement: <ErrorPage />,
+    children: privateRoutes,
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
+  },
+]);
+
+export const App = () => {
+  return (
+    <ErrorBoundary fallback={<ErrorPage />}>
+      <Suspense fallback={<LoadingAnimation />}>
+        <AuthInitializer />
+        <RouterProvider router={router} />
+      </Suspense>
+    </ErrorBoundary>
+  );
+};
