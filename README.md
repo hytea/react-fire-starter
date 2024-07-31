@@ -24,13 +24,13 @@
    cd react-fire-starter
    ```
 
-3. Install dependencies:
+3. **Install dependencies**:
 
 ```bash
 npm install
 ```
 
-4. Set up a Firebase project:
+4. **Set up a Firebase project**:
 
    - Go to the [Firebase Console](https://console.firebase.google.com/).
    - Create a new project.
@@ -38,7 +38,7 @@ npm install
    - Add a web app to the project.
    - Copy the Firebase config object.
 
-5. Configure environment variables:
+5. **Configure environment variables**:
 
    - Create a `.env` file in the root directory of the project.
    - Add the Firebase config object to the `.env` file:
@@ -51,7 +51,7 @@ npm install
      VITE_FIREBASE_APP_ID=your-app-id
      ```
 
-6. Run the development server:
+6. **Run the development server**:
 
 ```bash
 npm run dev
