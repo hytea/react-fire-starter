@@ -10,6 +10,8 @@ import { useNotification } from "#/components/notification/NotificationContext";
 
 import { AuthError } from "#/errors/AuthError";
 
+import "./LoginPage.css";
+
 export function LoginPage() {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -46,24 +48,44 @@ export function LoginPage() {
   }
 
   return (
-    <div>
-      <h1>User Login</h1>
-      <form onSubmit={onLoginSubmit}>
+    <div className="login-container">
+      <img
+        className="login-logo"
+        src="/ReactFireStarterLogo.svg"
+        alt="logo"
+        width={200}
+        height={200}
+      />
+      <h1 className="login-title">React Fire Starter</h1>
+      <button className="google-button" onClick={onGoogleLogin}>
+        <img
+          aria-hidden
+          alt="Google Logo"
+          src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
+          width={30}
+        />
+        Sign in with Google
+      </button>
+      <h3>Or</h3>
+      <form className="login-form" onSubmit={onLoginSubmit}>
         <input
+          className="login-input"
           type="email"
           value={userEmail}
           onChange={(event) => setUserEmail(event.target.value)}
           placeholder="Enter Email"
         />
         <input
+          className="login-input"
           type="password"
           value={userPassword}
           onChange={(event) => setUserPassword(event.target.value)}
           placeholder="Enter Password"
         />
-        <button type="submit">Login</button>
+        <button className="login-button" type="submit">
+          Login
+        </button>
       </form>
-      <button onClick={onGoogleLogin}>Sign in with Google</button>
     </div>
   );
 }

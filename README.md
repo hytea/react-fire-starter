@@ -112,6 +112,10 @@ import { MyComponent } from "#/components/MyComponent";
 
 This alias is configured in the `vite.config.ts` file and should work out of the box.
 
+## Screenshots
+
+<img src="./public/login_screenshot.png" alt="React Firebase Starter Login Screen" width="500" height="500">
+
 ## Opinionated Decisions
 
 In this project, I have made several opinionated decisions to ensure consistency and align with best practices in the React ecosystem:
