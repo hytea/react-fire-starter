@@ -83,6 +83,66 @@ npm run dev
 - Add a new route in the `src/App.tsx` file.
 - Add the new route to the `publicRoutes` config.
 
+## Styling
+
+This template does not take an opinionated stance on styling and tries to keep styles to a minimum, as the expectation is that each developer will want to take on that part themselves. Vite provides built-in support for `.scss`, `.sass`, `.less`, `.styl` and `.stylus` files. There are a couple of things you can do “out of the box”:
+
+- Convert All CSS Files to SCSS, SASS, LESS, STYL, STYLUS: Simply rename your .css files to .scss and use the SCSS syntax. Vite will handle that automatically.
+- Use Modular CSS or SCSS: You can use CSS Modules with either CSS or SCSS. Just follow the naming convention _.module.css or _.module.scss.
+
+For more information on supported pre-processors and configuration, please refer to the [Vite documentation](https://vitejs.dev/guide/features.html#css).
+
+## Import Aliases
+
+To simplify imports, you can use the `'#/'` alias for the `'./src/'` directory. This means you don't have to worry about relative paths when importing modules from anywhere in the project.
+
+**Example Usage:**
+
+Instead of writing:
+
+```javascript
+import { MyComponent } from "../../components/MyComponent";
+```
+
+You can write:
+
+```javascript
+import { MyComponent } from "#/components/MyComponent";
+```
+
+This alias is configured in the `vite.config.ts` file and should work out of the box.
+
+## Opinionated Decisions
+
+In this project, I have made several opinionated decisions to ensure consistency and align with best practices in the React ecosystem:
+
+1. **Named Exports**:
+
+- I try to keep all exports as named exports for consistency. Named exports provide clarity and help in avoiding default export pitfalls, such as incorrect import names.
+
+2. **File Naming Conventions**:
+
+- I have followed the directives of the creator of React and named all TypeScript files with the `.tsx` extension, even if they do not contain any JSX. This approach ensures consistency and allows for the possibility of adding JSX in the future without needing to rename files. For more details on this opinion, see [my favorite Github issue comment](https://github.com/airbnb/javascript/pull/985#issuecomment-239145468) by the creator of React [Dan Abramov](https://www.google.com/search?q=dan+abramov).
+
+3. **Recoil State Management**:
+
+- I have chosen Recoil for state management due to its simplicity and ease of use. Recoil is a state management library for React that provides several benefits, such as minimal boilerplate, global state management, and asynchronous data fetching. Recoil is a great choice for small to medium-sized projects and is easy to integrate with existing React applications.
+- For more information on Recoil, please refer to the [official documentation](https://recoiljs.org/).
+- For a practical guide on using Recoil, check out this [Recoil tutorial](https://recoiljs.org/docs/basic-tutorial/intro/).
+- Recoil API documentation: [here](https://recoiljs.org/docs/api-reference/core/RecoilRoot/).
+
+4. **React Router DOM**:
+
+- I have chosen React Router DOM for routing due to its flexibility and ease of use. React Router DOM is a declarative routing library for React that provides several benefits, such as nested routing, dynamic routing, and route-based code splitting. React Router DOM is a great choice for single-page applications and is easy to integrate with existing React applications.
+- For more information on React Router DOM, please refer to the [official documentation](https://reactrouter.com/).
+
+5. **Firebase Authentication**:
+
+- I have chosen Firebase for authentication, again, due to its simplicity and ease of use. Firebase is a platform developed by Google that provides several services, such as authentication, real-time database, cloud storage, and cloud functions. Firebase authentication is a great choice for small to medium-sized projects and is easy to integrate with existing React applications.
+- For more information on Firebase authentication, please refer to the [official documentation](https://firebase.google.com/docs/auth).
+
+The goal of these opinionated decisions is to provide a consistent and reliable development experience for developers. By following these best practices, you can ensure that your codebase is maintainable, scalable, and easy to understand. The only of these opinions that would be inefficient to modify is the use of `react-router-dom` and Firebase authentication, but the rest can easily be changed.
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements.
