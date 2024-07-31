@@ -1,0 +1,85 @@
+/* Styles for the notification component */
+
+.notify {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  max-width: 300px;
+  position: relative;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.notify-image {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.notify-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.notify-title {
+  margin: 0 25px 0 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.notify-details {
+  margin: 0;
+  font-size: 14px;
+}
+
+.notify-close {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  padding: 0 5px;
+  position: absolute;
+  right: 6px;
+  top: 10px;
+}
+
+.notify-close:focus {
+  outline: 2px solid white; /* Add a custom outline with the size of the button */
+  outline-offset: -2px; /* Adjust the outline offset if necessary */
+}
+
+.notify-close:hover {
+  color: #ff5c5c;
+}
+
+/* Container for stacking notifications */
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .notification-container {
+    top: 0;
+    right: 0;
+    left: 0;
+    align-items: center;
+  }
+  .notify {
+    max-width: 100%;
+    border-radius: 0;
+  }
+}

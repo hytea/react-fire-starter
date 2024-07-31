@@ -12,6 +12,7 @@ import { AuthInitializer } from "#/authentication/Authenticate";
 import { RequireAuthentication } from "#/authentication/RequireAuthentication";
 
 import { LoadingAnimation } from "#/components/loading-animation";
+import { NotificationProvider } from "#/components/notification/NotificationContext";
 
 import { ErrorPage } from "#/pages/error";
 import { LoginPage } from "#/pages/login";
@@ -77,8 +78,10 @@ export default function App() {
   return (
     <ErrorBoundary fallback={<ErrorPage />}>
       <Suspense fallback={<LoadingAnimation />}>
-        <AuthInitializer />
-        <RouterProvider router={router} />
+        <NotificationProvider>
+          <AuthInitializer />
+          <RouterProvider router={router} />
+        </NotificationProvider>
       </Suspense>
     </ErrorBoundary>
   );
