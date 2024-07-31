@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   userSignInWithEmail as emailSignIn,
@@ -86,6 +86,9 @@ export function LoginPage() {
           Login
         </button>
       </form>
+      <p className="sign-up-link">
+        Don't have an account? <Link to="/auth/sign-up">Sign Up</Link>
+      </p>
     </div>
   );
 }

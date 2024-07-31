@@ -14,6 +14,8 @@ export function LandingPage() {
   return (
     <div>
       <h1>Welcome, {user.email}</h1>
+      <p>This is the landing page for authenticated users</p>
+      <button onClick={() => navigateTo("/logout")}>Logout</button>
     </div>
   );
 }

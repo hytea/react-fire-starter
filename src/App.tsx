@@ -23,6 +23,8 @@ import { Logout } from "#/routes/Logout";
 import { Primary } from "#/routes/Private";
 import { Public } from "#/routes/Public";
 
+import { SignUpPage } from "./pages/sign-up";
+
 if (import.meta.env.DEV) {
   RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 }
@@ -46,6 +48,10 @@ const publicRoutes = [
   {
     path: "/auth/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/auth/sign-up",
+    element: <SignUpPage />,
   },
 ];
 
