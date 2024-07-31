@@ -11,6 +11,8 @@
 - **State Management with Recoil**: Simple and efficient state management.
 - **Modern Build Setup with Vite and TypeScript**: Fast and optimized development experience.
 
+[Live Demo](https://main--react-fire-starter.netlify.app/)
+
 ## Installation
 
 1. **Fork the Repository**:
