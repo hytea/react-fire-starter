@@ -37,21 +37,23 @@ const privateRoutes = [
   },
 ];
 
+const publicRoutes = [
+  {
+    path: "/auth",
+    element: <Navigate to="/auth/login" replace />,
+  },
+  {
+    path: "/auth/login",
+    element: <LoginPage />,
+  },
+];
+
 const router = createBrowserRouter([
   {
     path: "/auth",
     element: <Public />,
     errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/auth",
-        element: <Navigate to="/auth/login" replace />,
-      },
-      {
-        path: "/auth/login",
-        element: <LoginPage />,
-      },
-    ],
+    children: publicRoutes,
   },
   {
     path: "/",
@@ -71,7 +73,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-export const App = () => {
+export default function App() {
   return (
     <ErrorBoundary fallback={<ErrorPage />}>
       <Suspense fallback={<LoadingAnimation />}>
@@ -80,4 +82,4 @@ export const App = () => {
       </Suspense>
     </ErrorBoundary>
   );
-};
+}
