@@ -10,6 +10,7 @@
 - **Public and Private Routes**: Easily manage accessible routes based on user authentication state.
 - **State Management with Recoil**: Simple and efficient state management.
 - **Modern Build Setup with Vite and TypeScript**: Fast and optimized development experience.
+- **Cookie Consent Management**: Manage user consent for cookies.
 
 [Live Demo](https://main--react-fire-starter.netlify.app/)
 
@@ -114,6 +115,21 @@ import { MyComponent } from "#/components/MyComponent";
 
 This alias is configured in the `vite.config.ts` file and should work out of the box.
 
+## Cookie Consent Management
+
+This template includes a simple cookie consent management system that allows users to accept or decline cookies. The cookie consent banner is displayed at the bottom of the page and is managed by the `CookieBanner` component. The `CookieBanner` component uses the `useCookieConsentContext` hook to manage the user's consent state.
+
+** Example Usage: **
+
+```javascript
+import { useCookieConsentContext } from "#/context/cookieConsentContext";
+
+const { consent } = useCookieConsentContext();
+
+if (consent.firstParty ) // Persist user data
+if (consent.thirdParty ) // Record sign-in event
+```
+
 ## Screenshots
 
 <img src="./public/login_screenshot.png" alt="React Firebase Starter Login Screen" width="500" height="500">
@@ -159,4 +175,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Keywords
 
-react, firebase, vite, typescript, recoil, boilerplate, authentication, template, web app, starter kit, react-router, react-router-dom, firebase-auth, firebase-authentication, vitejs, frontend, web development, spa, single page application, react-hooks, typescript-react, vite-template, react-template, firebase-template, react-firebase, vite-react, recoil-state, state management, login, signup, user registration, private routes, public routes, protected routes, user authentication, project setup, dev tools, modern web development, react boilerplate, vite boilerplate, firebase boilerplate, starter template, developer tools, codebase, best practices, scalable architecture, project template, react project, web starter, client-side, react ecosystem, frontend tooling, react-vite, react starter, authentication system, fullstack, reactjs, frontend template, project boilerplate, react auth, firebase login, react recoil, react spa, typescript starter, typescript boilerplate, vitejs starter, vitejs boilerplate, firebase project, authentication template, modern js, jsx, tsx, jsx react, typescript react template
+react, firebase, vite, typescript, recoil, boilerplate, authentication, template, web app, starter kit, react-router, react-router-dom, firebase-auth, firebase-authentication, vitejs, frontend, web development, spa, single page application, react-hooks, typescript-react, vite-template, react-template, firebase-template, react-firebase, vite-react, recoil-state, state management, login, signup, user registration, private routes, public routes, protected routes, user authentication, project setup, dev tools, modern web development, react boilerplate, vite boilerplate, firebase boilerplate, starter template, developer tools, codebase, best practices, scalable architecture, project template, react project, web starter, client-side, react ecosystem, frontend tooling, react-vite, react starter, authentication system, fullstack, reactjs, frontend template, project boilerplate, react auth, firebase login, react recoil, react spa, typescript starter, typescript boilerplate, vitejs starter, vitejs boilerplate, firebase project, authentication template, modern js, jsx, tsx, jsx react, typescript react template, cookie, consent, cookie consent, cookie management, cookie banner
