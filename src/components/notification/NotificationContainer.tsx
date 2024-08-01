@@ -8,9 +8,7 @@ interface NotificationContainerProps {
   notifications: Array<Notification>;
 }
 
-const NotificationContainer: React.FC<NotificationContainerProps> = ({
-  notifications,
-}) => {
+function NotificationContainer({ notifications }: NotificationContainerProps) {
   return (
     <div className="notification-container">
       {notifications.map((notification, index) => (
@@ -25,6 +23,6 @@ const NotificationContainer: React.FC<NotificationContainerProps> = ({
       ))}
     </div>
   );
-};
+}
 
 export default NotificationContainer;

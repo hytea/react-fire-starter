@@ -4,7 +4,6 @@ import Notify from "./Notify";
 import "./Notify.css";
 import { Notification } from "./types";
 
-
 interface NotificationContextProps {
   addNotification: (notification: Omit<Notification, "id">) => void;
 }
@@ -13,7 +12,7 @@ const NotificationContext = createContext<NotificationContextProps | undefined>(
   undefined,
 );
 
-export const useNotification = () => {
+export function useNotification() {
   const context = useContext(NotificationContext);
   if (!context) {
     throw new Error(
@@ -21,11 +20,9 @@ export const useNotification = () => {
     );
   }
   return context;
-};
+}
 
-export const NotificationProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
+export function NotificationProvider({ children }: { children: ReactNode }) {
   const [notifications, setNotifications] = useState<Notification[]>([]);
 
   const addNotification = (notification: Omit<Notification, "id">) => {
@@ -49,12 +46,15 @@ export const NotificationProvider: React.FC<{ children: ReactNode }> = ({
       />
     </NotificationContext.Provider>
   );
-};
+}
 
-const NotificationContainer: React.FC<{
+function NotificationContainer({
+  notifications,
+  onClose,
+}: {
   notifications: Notification[];
   onClose: (id: number) => void;
-}> = ({ notifications, onClose }) => {
+}) {
   return (
     <div className="notification-container">
       {notifications.map((notification) => (
@@ -69,4 +69,4 @@ const NotificationContainer: React.FC<{
       ))}
     </div>
   );
-};
+}
