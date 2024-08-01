@@ -12,7 +12,7 @@
 - **Modern Build Setup with Vite and TypeScript**: Fast and optimized development experience.
 - **Cookie Consent Management**: Manage user consent for cookies.
 
-[Live Demo](https://main--react-fire-starter.netlify.app/)
+[Live Demo](https://react-fire-starter.netlify.app/)
 
 ## Installation
 
