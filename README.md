@@ -99,7 +99,7 @@ For more information on supported pre-processors and configuration, please refer
 
 To simplify imports, you can use the `'#/'` alias for the `'./src/'` directory. This means you don't have to worry about relative paths when importing modules from anywhere in the project.
 
-**Example Usage:**
+**Example Usage**:
 
 Instead of writing:
 
