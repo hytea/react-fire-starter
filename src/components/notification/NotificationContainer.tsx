@@ -1,5 +1,3 @@
-import React from "react";
-
 import Notify from "./Notify";
 import "./Notify.css";
 import { Notification } from "./types";
