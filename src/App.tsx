@@ -1,4 +1,5 @@
-import { Suspense } from "react";
+import { useCookieConsentContext } from "@use-cookie-consent/react";
+import { Suspense, useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import {
   Navigate,
@@ -11,6 +12,7 @@ import { AuthLoading } from "#/authentication/AuthLoading";
 import { AuthInitializer } from "#/authentication/Authenticate";
 import { RequireAuthentication } from "#/authentication/RequireAuthentication";
 
+import { CookieBanner } from "#/components/cookie-banner";
 import { LoadingAnimation } from "#/components/loading-animation";
 import { NotificationProvider } from "#/components/notification/NotificationContext";
 
@@ -18,12 +20,11 @@ import { ErrorPage } from "#/pages/error";
 import { LoginPage } from "#/pages/login";
 import { NotFoundPage } from "#/pages/not-found";
 import { LandingPage } from "#/pages/private/landing";
+import { SignUpPage } from "#/pages/sign-up";
 
 import { Logout } from "#/routes/Logout";
 import { Primary } from "#/routes/Private";
 import { Public } from "#/routes/Public";
-
-import { SignUpPage } from "./pages/sign-up";
 
 if (import.meta.env.DEV) {
   RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
@@ -81,12 +82,24 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
+  const { consent } = useCookieConsentContext();
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
+
+  useEffect(() => {
+    if (consent.firstParty === undefined && consent.thirdParty === undefined) {
+      setShowCookieBanner(true);
+    } else {
+      setShowCookieBanner(false);
+    }
+  }, [consent]);
+
   return (
     <ErrorBoundary fallback={<ErrorPage />}>
       <Suspense fallback={<LoadingAnimation />}>
         <NotificationProvider>
           <AuthInitializer />
           <RouterProvider router={router} />
+          {showCookieBanner && <CookieBanner />}
         </NotificationProvider>
       </Suspense>
     </ErrorBoundary>
