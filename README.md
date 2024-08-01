@@ -119,7 +119,7 @@ This alias is configured in the `vite.config.ts` file and should work out of the
 
 This template includes a simple cookie consent management system that allows users to accept or decline cookies. The cookie consent banner is displayed at the bottom of the page and is managed by the `CookieBanner` component. The `CookieBanner` component uses the `useCookieConsentContext` hook to manage the user's consent state.
 
-** Example Usage: **
+**Example Usage**:
 
 ```javascript
 import { useCookieConsentContext } from "#/context/cookieConsentContext";
