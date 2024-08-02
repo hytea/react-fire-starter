@@ -49,13 +49,7 @@ export function LoginPage() {
 
   return (
     <div className="login-container">
-      <img
-        className="login-logo"
-        src="/ReactFireStarterLogo.svg"
-        alt="logo"
-        width={200}
-        height={200}
-      />
+      <img className="login-logo" src="/ReactFireStarterLogo.svg" alt="logo" />
       <h1 className="login-title">React Fire Starter</h1>
       <button className="google-button" onClick={onGoogleLogin}>
         <img

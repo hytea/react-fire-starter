@@ -5,23 +5,34 @@
   justify-content: center;
   min-height: 100vh;
   color: whitesmoke;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.login-logo {
+  margin-bottom: 1rem;
+  max-width: 200px;
+  width: 200px;
+  height: auto;
 }
 
 .login-title {
   font-size: 1.5rem;
   margin: 1rem 0 1.5rem 0;
-
   color: whitesmoke;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   background: #151515;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 .login-input {
@@ -42,6 +53,7 @@
   color: white;
   cursor: pointer;
   transition: background-color 0.3s;
+  box-sizing: border-box;
 }
 
 .login-button:hover {
@@ -61,9 +73,12 @@
   color: white;
   cursor: pointer;
   text-align: center;
-  transition: background-color 0.3s;
-  transition: border-color 0.3s;
-  width: 364px;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
 }
 
 .google-button img {
@@ -124,7 +139,22 @@
   .sign-up-link a {
     color: #0c2743;
   }
+
   .sign-up-link a:hover {
     color: #0c2743cb;
+  }
+}
+
+@media (max-height: 500px) {
+  .login-container {
+    justify-content: flex-start;
+  }
+
+  .login-logo {
+    margin-top: 20px;
+  }
+
+  .login-form {
+    margin-top: 20px;
   }
 }

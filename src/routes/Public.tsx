@@ -32,7 +32,7 @@ export function Public() {
   }, [userLoaded, authInitialized]);
 
   return (
-    <div className="public-page">
+    <div className="public-page" style={{ width: "100%" }}>
       <Outlet />
     </div>
   );
