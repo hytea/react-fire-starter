@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-magic-numbers */
 import { AuthErrorCodes } from "#/authentication/Authenticate";
 
 import { AppError } from "./AppError";

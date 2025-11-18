@@ -9,7 +9,8 @@
 - **Authentication with Firebase**: Secure and reliable user authentication.
 - **Public and Private Routes**: Easily manage accessible routes based on user authentication state.
 - **State Management with Recoil**: Simple and efficient state management.
-- **Modern Build Setup with Vite and TypeScript**: Fast and optimized development experience.
+- **Modern Build Setup**: Vite 6 and TypeScript 5.7 for fast development and optimized builds.
+- **Code Quality Tools**: ESLint 9 with flat config and Prettier for consistent, error-free code.
 - **Cookie Consent Management**: Manage user consent for cookies.
 
 [Live Demo](https://react-fire-starter.netlify.app/)
@@ -114,6 +115,19 @@ import { MyComponent } from "#/components/MyComponent";
 ```
 
 This alias is configured in the `vite.config.ts` file and should work out of the box.
+
+## Code Quality
+
+This template uses modern tooling to ensure code quality:
+
+- **ESLint 9** with flat config format for TypeScript and React
+- **Prettier** for consistent code formatting with import sorting
+- **TypeScript 5.7** for type safety
+
+Available scripts:
+- `npm run lint` - Run ESLint to check for issues
+- `npm run lint:fix` - Automatically fix ESLint issues
+- `npm run build` - Run linting before building for production
 
 ## Cookie Consent Management
 
