@@ -1,4 +1,4 @@
-import { useEffect as useComponentEffect } from "react";
+import { useEffect as useComponentEffect, type ReactNode } from "react";
 import {
   useLocation as useRouteLocation,
   useNavigate as useRouterNavigate,
@@ -9,7 +9,7 @@ import { getUser } from "#/authentication/Authenticate";
 
 import { authInitializedAtom as authStateInitialized } from "#/recoil/auth-initialized";
 
-export function RequireAuthentication({ children }: { children: JSX.Element }) {
+export function RequireAuthentication({ children }: { children: ReactNode }) {
   const authenticatedUser = getUser();
   const currentLocation = useRouteLocation();
   const isAuthenticationInitialized = useRecoilStateValue(authStateInitialized);

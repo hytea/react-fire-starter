@@ -1,5 +1,5 @@
 import { useCookieConsentContext } from "@use-cookie-consent/react";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import {
   Navigate,
@@ -83,15 +83,7 @@ const router = createBrowserRouter([
 
 export default function App() {
   const { consent } = useCookieConsentContext();
-  const [showCookieBanner, setShowCookieBanner] = useState(false);
-
-  useEffect(() => {
-    if (consent.firstParty === undefined && consent.thirdParty === undefined) {
-      setShowCookieBanner(true);
-    } else {
-      setShowCookieBanner(false);
-    }
-  }, [consent]);
+  const showCookieBanner = consent.firstParty === undefined && consent.thirdParty === undefined;
 
   return (
     <ErrorBoundary fallback={<ErrorPage />}>
